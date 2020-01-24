@@ -31,19 +31,19 @@ To receive a message or other kind of event, a widget have to connect a signal e
 
 example: a widget wants to react to the `ac_selected` signal with a method called `changeFocusedAc`:
 
-```
+```C++
 connect(UiDispatcher::get(), SIGNAL(ac_selected(int)), this, SLOT(changeFocusedAc(int)));
 ```
 
 other example: To react to a pprzLink message:
 
-```
+```C++
 connect(PprzDispatcher::get(), SIGNAL(gps(PprzMessage)), this, SLOT(updatePos(PprzMessage)));
 ```
 
 To emit a signal, the widget emits it in the name of the dispatcher:
 
-```
+```C++
 emit(UiDispatcher::get()->ac_selected(2));
 ```
 
